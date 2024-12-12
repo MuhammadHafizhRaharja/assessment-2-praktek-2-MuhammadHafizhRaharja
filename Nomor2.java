@@ -15,6 +15,10 @@ public class Nomor2 {
         while (true) {
             System.out.print("Masukan pilihan buku [1/2/3/4]:");
             int pilihan = input.nextInt();
+            if (pilihan < 1 || pilihan > 4) {
+                System.out.println("Pilihan tidak valid. Silakan coba lagi.");
+                continue;
+            }
             hargaBelanja.add(hargaBuku[pilihan - 1]);
             System.out.print("Input lagi (Y/N)?:");
             String jawaban = input.next();
@@ -28,8 +32,6 @@ public class Nomor2 {
 
         System.out.println("Total voucher belanja = " + voucherBelanja);
         System.out.println("Total yang harus dibayar = " + (totalHarga - voucherBelanja));
-
-        System.out.println(Nomor2.class.getDeclaredMethods().length); 
     }
 
     public static String getNamaBuku(int index) {
