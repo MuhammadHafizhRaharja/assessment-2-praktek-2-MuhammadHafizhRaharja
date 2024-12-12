@@ -1,66 +1,74 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Nomor2 {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        ArrayList<Integer> belanja = new ArrayList<>();
-        int[] hargaBuku = {350000, 450000, 500000, 95000};
-        String[] daftarBuku = {"Sherlock Holmes", "Arsene Lupin", "Game of Throne", "Psychology of Money"};
 
-        System.out.println("Daftar Buku:");
-        for (int i = 0; i < daftarBuku.length; i++) {
-            System.out.printf("%d. %s - Rp%d%n", (i + 1), daftarBuku[i], hargaBuku[i]);
-        }
-
-        char lagi;
-        do {
-            System.out.print("Masukkan pilihan buku [1/2/3/4]: ");
-            int pilihan = input.nextInt();
-
-            if (pilihan >= 1 && pilihan <= 4) {
-                belanja.add(hargaBuku[pilihan - 1]);
-                System.out.println(daftarBuku[pilihan - 1] + " berhasil ditambahkan ke keranjang.");
-            } else {
-                System.out.println("Pilihan tidak valid. Silakan pilih antara 1 hingga 4.");
-            }
-
-            System.out.print("Input lagi (Y/N)?: ");
-            lagi = input.next().trim().toUpperCase().charAt(0);
-        } while (lagi == 'Y');
-
-        int totalHarga = hitungTotalHarga(belanja);
-        int voucher = hitungVoucher(totalHarga);
-
-        System.out.println("\nDetail Belanja:");
-        for (int i = 0; i < belanja.size(); i++) {
-            System.out.printf("Buku %d: Rp%d%n", (i + 1), belanja.get(i));
-        }
-
-        System.out.println("\nTotal harga belanja: Rp" + totalHarga);
-        System.out.println("Total voucher belanja: Rp" + voucher);
-        System.out.println("Total yang harus dibayar: Rp" + (totalHarga - voucher));
-    }
-
-    public static int hitungTotalHarga(ArrayList<Integer> belanja) {
+    // Prosedur untuk menghitung total harga buku
+    public static int calculateTotal(ArrayList<Integer> prices) {
         int total = 0;
-        for (int harga : belanja) {
-            total += harga;
+        for (int price : prices) {
+            total += price;
         }
         return total;
     }
 
-    public static int hitungVoucher(int totalHarga) {
-        if (totalHarga < 200000) {
+    // Prosedur untuk menghitung voucher belanja
+    public static int calculateVoucher(int total) {
+        if (total < 200000) {
             return 0;
-        } else if (totalHarga <= 500000) {
+        } else if (total <= 500000) {
             return 50000;
-        } else if (totalHarga <= 750000) {
+        } else if (total <= 750000) {
             return 100000;
-        } else if (totalHarga <= 1000000) {
+        } else if (total <= 1000000) {
             return 150000;
         } else {
             return 200000;
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Daftar harga buku
+        String[] bookNames = {"Sherlock Holmes", "Arsene Lupin", "Game of Throne", "Psychology of Money"};
+        int[] bookPrices = {350000, 450000, 500000, 95000};
+
+         // Tampilkan daftar buku
+         System.out.println("Daftar Buku:");
+         for (int i = 0; i < bookNames.length; i++) {
+             System.out.println((i + 1) + ". " + bookNames[i] + " - " + bookPrices[i]);
+         }
+ 
+         ArrayList<Integer> chosenBooks = new ArrayList<>();
+ 
+         // Pekerjaan anda mulai dari sini
+         while (true) {
+             System.out.print("Masukan pilihan buku [1/2/3/4]: ");
+             int choice = input.nextInt();
+ 
+             if (choice >= 1 && choice <= 4) {
+                 chosenBooks.add(bookPrices[choice - 1]);
+             } else {
+                 System.out.println("Pilihan tidak valid, coba lagi.");
+                 continue;
+             }
+ 
+             System.out.print("Input lagi (Y/N)?: ");
+             char more = input.next().charAt(0);
+             if (more == 'N' || more == 'n') {
+                 break;
+             }
+         }
+ 
+         // Hitung total harga dan voucher
+         int total = calculateTotal(chosenBooks);
+         int voucher = calculateVoucher(total);
+ 
+         // Tampilkan hasil
+         System.out.println("Total voucher belanja : " + voucher);
+         System.out.println("Total yang harus dibayar : " + total);
+         // Pekerjaan anda berakhir sini
+
+         System.out.println(Nomor2.class.getDeclaredMethods().length); 
     }
 }
