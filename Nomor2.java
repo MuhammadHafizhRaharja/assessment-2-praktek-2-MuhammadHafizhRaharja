@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Nomor2 {
@@ -13,17 +14,22 @@ public class Nomor2 {
         }
 
         while (true) {
-            System.out.print("Masukan pilihan buku [1/2/3/4]:");
-            int pilihan = input.nextInt();
-            if (pilihan < 1 || pilihan > 4) {
+            try {
+                System.out.print("Masukan pilihan buku [1/2/3/4]:");
+                int pilihan = input.nextInt();
+                if (pilihan < 1 || pilihan > 4) {
+                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
+                    continue;
+                }
+                hargaBelanja.add(hargaBuku[pilihan - 1]);
+                System.out.print("Input lagi (Y/N)?:");
+                String jawaban = input.next();
+                if (jawaban.equalsIgnoreCase("N")) {
+                    break;
+                }
+            } catch (InputMismatchException e) {
                 System.out.println("Pilihan tidak valid. Silakan coba lagi.");
-                continue;
-            }
-            hargaBelanja.add(hargaBuku[pilihan - 1]);
-            System.out.print("Input lagi (Y/N)?:");
-            String jawaban = input.next();
-            if (jawaban.equalsIgnoreCase("N")) {
-                break;
+                input.next(); // Clear the invalid input
             }
         }
 
@@ -50,11 +56,11 @@ public class Nomor2 {
     public static int hitungVoucherBelanja(int totalHarga) {
         if (totalHarga < 200000) {
             return 0;
-        } else if (totalHarga >= 200000 && totalHarga <= 500000) {
+        } else if (totalHarga >= 200000 && totalHarga < 500000) {
             return 50000;
-        } else if (totalHarga >= 500000 && totalHarga <= 750000) {
+        } else if (totalHarga >= 500000 && totalHarga < 750000) {
             return 100000;
-        } else if (totalHarga >= 750000 && totalHarga <= 1000000) {
+        } else if (totalHarga >= 750000 && totalHarga < 1000000) {
             return 150000;
         } else {
             return 200000;
