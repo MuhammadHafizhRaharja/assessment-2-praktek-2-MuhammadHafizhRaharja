@@ -25,14 +25,15 @@ public class Nomor2 {
             }
 
             System.out.print("Input lagi (Y/N)?: ");
-            lagi = input.next().charAt(0);
-        } while (lagi == 'Y' || lagi == 'y');
+            lagi = input.next().trim().toUpperCase().charAt(0);
+        } while (lagi == 'Y');
 
         int totalHarga = hitungTotalHarga(belanja);
         int voucher = hitungVoucher(totalHarga);
 
-        System.out.println("Total voucher belanja = " + voucher);
-        System.out.println("Total yang harus dibayar = " + totalHarga);
+        System.out.println("Total voucher belanja : " + voucher);
+        System.out.println("Total yang harus dibayar : " + totalHarga);
+        System.out.println(belanja.size());
     }
 
     public static int hitungTotalHarga(ArrayList<Integer> belanja) {
