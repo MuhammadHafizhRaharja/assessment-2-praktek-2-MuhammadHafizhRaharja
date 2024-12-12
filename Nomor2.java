@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Nomor2 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         // Daftar buku
@@ -12,7 +12,7 @@ public class Nomor2 {
         // Tampilkan daftar buku
         System.out.println("Daftar Buku:");
         for (int i = 0; i < buku.length; i++) {
-            System.out.println((i+1) + ". " + buku[i] + " " + harga[i]);
+            System.out.println((i + 1) + ". " + buku[i] + " " + harga[i]);
         }
 
         // Tampung harga belanja user ke dalam ArrayList
@@ -20,7 +20,7 @@ public class Nomor2 {
         while (true) {
             System.out.print("Masukan pilihan buku [1/2/3/4]:");
             int pilihan = input.nextInt();
-            belanja.add(harga[pilihan-1]);
+            belanja.add(harga[pilihan - 1]);
             System.out.print("Input lagi (Y/N)?:");
             String lagi = input.next();
             if (lagi.equalsIgnoreCase("N")) {
@@ -50,6 +50,6 @@ public class Nomor2 {
         System.out.println("Total voucher belanja = " + voucher);
         System.out.println("Total yang harus dibayar = " + (totalHarga - voucher));
 
-        System.out.println("Nomor2".getClass().getDeclaredMethods().length); 
+        System.out.println("Nomor2".getClass().getDeclaredMethods().length);
     }
 }
