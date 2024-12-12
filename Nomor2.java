@@ -50,6 +50,6 @@ public class Nomor2 {
         System.out.println("Total voucher belanja = " + voucher);
         System.out.println("Total yang harus dibayar = " + (totalHarga - voucher));
 
-        System.out.println(Nomor2.class.getDeclaredMethods().length); 
+        System.out.println("Nomor2".getClass().getDeclaredMethods().length); 
     }
 }
