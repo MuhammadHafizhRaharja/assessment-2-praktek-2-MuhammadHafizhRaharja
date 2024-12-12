@@ -17,21 +17,17 @@ public class Nomor2 {
 
         // Tampung harga belanja user ke dalam ArrayList
         ArrayList<Integer> belanja = new ArrayList<>();
+        int totalHarga = 0;
         while (true) {
             System.out.print("Masukan pilihan buku [1/2/3/4]:");
             int pilihan = input.nextInt();
             belanja.add(harga[pilihan - 1]);
+            totalHarga += harga[pilihan - 1];
             System.out.print("Input lagi (Y/N)?:");
             String lagi = input.next();
             if (lagi.equalsIgnoreCase("N")) {
                 break;
             }
-        }
-
-        // Hitung total harga buku yang dibeli
-        int totalHarga = 0;
-        for (int hargaBuku : belanja) {
-            totalHarga += hargaBuku;
         }
 
         // Hitung voucher belanja
