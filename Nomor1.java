@@ -21,12 +21,12 @@ public class Nomor1 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int N = input.nextInt();
+        System.out.print("Masukkan nilai N: ");
+        int N = input.nextInt(); // Menerima input dari pengguna
 
-        // Pekerjaan anda mulai dari sini
+        // Panggil prosedur printFizzBuzz untuk menampilkan deret
         printFizzBuzz(N);
-        // Pekerjaan anda berakhir sini
 
-        System.out.println(Nomor1.class.getDeclaredMethods().length); 
+        input.close(); // Menutup scanner setelah selesai
     }
 }
