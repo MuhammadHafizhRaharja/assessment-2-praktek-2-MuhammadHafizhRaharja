@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Nomor2 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        int N = input.nextInt();
 
         // Daftar buku
         String[] buku = {"Sherlock Holmes", "Arsene Lupin", "Game of Throne", "Psychology of Money"};
@@ -50,5 +49,7 @@ public class Nomor2 {
         // Tampilkan output
         System.out.println("Total voucher belanja = " + voucher);
         System.out.println("Total yang harus dibayar = " + (totalHarga - voucher));
+
+        System.out.println(Nomor2.class.getDeclaredMethods().length); 
     }
 }
