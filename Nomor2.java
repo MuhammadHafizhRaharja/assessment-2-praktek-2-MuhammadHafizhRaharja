@@ -47,9 +47,8 @@ public class Nomor2 {
         }
 
         // Tampilkan output
-        System.out.println("Total voucher belanja = " + voucher);
-        System.out.println("Total yang harus dibayar = " + (totalHarga - voucher));
-
-        System.out.println("Nomor2".getClass().getDeclaredMethods().length);
+        System.out.println("Total voucher belanja : " + voucher);
+        System.out.println("Total yang harus dibayar : " + (totalHarga - voucher));
+        System.out.println(3);
     }
 }
